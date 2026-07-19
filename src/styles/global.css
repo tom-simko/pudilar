@@ -862,6 +862,84 @@ ol {
   gap: clamp(3rem, 9vw, 10rem);
 }
 
+.closing-visual {
+  width: min(100%, 34rem);
+  align-self: center;
+  justify-self: start;
+}
+
+.closing-visual svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.closing-frame {
+  fill: rgba(23, 26, 24, 0.012);
+  stroke: var(--line-light);
+  stroke-opacity: 0.82;
+}
+
+.closing-grid line {
+  stroke: var(--line-light);
+  stroke-opacity: 0.48;
+  stroke-width: 1;
+}
+
+.closing-orbit {
+  fill: none;
+  stroke: var(--line-light);
+  stroke-width: 1;
+}
+
+.closing-orbit--outer {
+  stroke: var(--green-dark);
+  stroke-opacity: 0.42;
+}
+
+.closing-orbit--inner {
+  stroke-opacity: 0.78;
+}
+
+.closing-orbit--core {
+  stroke: var(--bronze);
+  stroke-opacity: 0.62;
+}
+
+.closing-needle,
+.closing-counterpoint {
+  fill: none;
+  stroke-width: 1.5;
+}
+
+.closing-needle {
+  stroke: var(--bronze);
+  stroke-opacity: 0.72;
+}
+
+.closing-counterpoint {
+  stroke: var(--green-dark);
+  stroke-opacity: 0.68;
+}
+
+.closing-points circle {
+  fill: var(--paper);
+  stroke: var(--green-dark);
+  stroke-width: 1.5;
+}
+
+.closing-points .closing-points--accent {
+  fill: var(--paper);
+  stroke: var(--bronze);
+  stroke-width: 2;
+}
+
+.closing-center {
+  fill: var(--paper);
+  stroke: var(--ink);
+  stroke-width: 2;
+}
+
 .closing-copy {
   max-width: 42rem;
 }

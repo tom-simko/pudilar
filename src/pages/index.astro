@@ -3,6 +3,7 @@ import SiteLayout from '../layouts/SiteLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import HeroVisual from '../components/HeroVisual.astro';
+import ClosingVisual from '../components/ClosingVisual.astro';
 import SectionHeading from '../components/SectionHeading.astro';
 import { siteCopy } from '../content/site';
 
@@ -94,7 +95,7 @@ const cardAccents = ['#9eaa8a', '#a9895c', '#9eaa8a', '#a9895c', '#9eaa8a'];
 
     <section class="closing-section section-light-alt">
       <div class="container closing-grid">
-        <div aria-hidden="true"></div>
+        <ClosingVisual />
         <div class="closing-copy reveal">
           <h2>{copy.closing.heading}</h2>
           <p>{copy.closing.body}</p>

@@ -1,0 +1,107 @@
+---
+import SiteLayout from '../../layouts/SiteLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import HeroVisual from '../../components/HeroVisual.astro';
+import SectionHeading from '../../components/SectionHeading.astro';
+import { siteCopy } from '../../content/site';
+
+const copy = siteCopy.sk;
+const buildDate = new Date();
+const cardAccents = ['#9eaa8a', '#a9895c', '#9eaa8a', '#a9895c', '#9eaa8a'];
+---
+
+<SiteLayout
+  title="Pudilar | Súkromná investičná spoločnosť"
+  description="Pudilar je súkromná investičná spoločnosť investujúca vlastný kapitál do reálnych aktív, súkromných spoločností, verejných trhov a digitálnych aktív."
+  locale="sk"
+  canonicalPath="/sk/"
+  alternatePath="/"
+>
+  <Header locale="sk" copy={copy} />
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="container hero-grid">
+        <div class="hero-copy reveal">
+          <p class="eyebrow">{copy.hero.eyebrow}</p>
+          <h1>{copy.hero.titleLines.map((line) => <span>{line}</span>)}</h1>
+          <p class="hero-intro">{copy.hero.intro}</p>
+          <a class="hero-action" href="#approach">{copy.hero.primaryLink}<span aria-hidden="true">↗</span></a>
+          <p class="hero-meta">{copy.hero.secondaryLabel}</p>
+        </div>
+        <HeroVisual caption={copy.hero.visualCaption} />
+      </div>
+      <p class="hero-scroll" aria-hidden="true">Posúvať ďalej</p>
+    </section>
+
+    <section class="approach-section section-light" id="approach">
+      <div class="container approach-grid">
+        <SectionHeading number="01" label={copy.approach.label} heading={copy.approach.heading} />
+        <div class="approach-copy reveal">
+          {copy.approach.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+          <div class="cycle-motif" aria-hidden="true"><span>{copy.approach.motifLabel}</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="areas-section section-surface" id="investment-areas">
+      <div class="container">
+        <div class="areas-header">
+          <SectionHeading number="02" label={copy.areas.label} heading={copy.areas.heading} light />
+          <p class="section-intro reveal">{copy.areas.intro}</p>
+        </div>
+        <div class="areas-grid">
+          {copy.areas.items.map((item, index) => (
+            <article class="area-card reveal" style={`--card-accent: ${cardAccents[index]}`}>
+              <div>
+                <p class="area-number">0{index + 1}</p>
+                <h3>{item.title}</h3>
+                <p>{item.text}</p>
+              </div>
+              <p class="area-micro">{item.microLabel}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="principles-section section-light-alt" id="principles">
+      <div class="container principles-grid">
+        <SectionHeading number="03" label={copy.principles.label} heading={copy.principles.heading} />
+        <ol class="principles-list">
+          {copy.principles.items.map((principle, index) => (
+            <li class="principle reveal">
+              <span class="principle-number">0{index + 1}</span>
+              <div>
+                <h3>{principle.title}</h3>
+                <p>{principle.text}</p>
+              </div>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </section>
+
+    <section class="company-section section-dark" id="company">
+      <div class="container company-grid">
+        <SectionHeading number="04" label={copy.company.label} heading={copy.company.heading} light />
+        <div class="company-copy reveal">
+          {copy.company.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+          <p class="supporting-statement">{copy.company.supportingStatement}</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="closing-section section-light-alt">
+      <div class="container closing-grid">
+        <div aria-hidden="true"></div>
+        <div class="closing-copy reveal">
+          <h2>{copy.closing.heading}</h2>
+          <p>{copy.closing.body}</p>
+          <a class="closing-link" href="#principles">{copy.closing.link}<span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer locale="sk" copy={copy} year={buildDate.getFullYear()} />
+</SiteLayout>

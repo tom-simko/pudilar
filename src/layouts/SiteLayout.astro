@@ -1,0 +1,95 @@
+---
+import '../styles/global.css';
+import type { Locale } from '../content/site';
+import { legalDetails } from '../content/site';
+
+interface Props {
+  title: string;
+  description: string;
+  locale: Locale;
+  canonicalPath: string;
+  alternatePath: string;
+  isLegal?: boolean;
+}
+
+const { title, description, locale, canonicalPath, alternatePath, isLegal = false } = Astro.props;
+const canonicalUrl = new URL(canonicalPath, 'https://pudilar.com').toString();
+const alternateUrl = new URL(alternatePath, 'https://pudilar.com').toString();
+const englishUrl = locale === 'en' ? canonicalUrl : alternateUrl;
+const slovakUrl = locale === 'sk' ? canonicalUrl : alternateUrl;
+const organizationSchema = {
+  '@type': 'Organization',
+  '@id': 'https://pudilar.com/#organization',
+  name: legalDetails.name,
+  url: 'https://pudilar.com/',
+  foundingDate: legalDetails.establishedIso,
+  identifier: legalDetails.companyId,
+  vatID: legalDetails.vatId,
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: legalDetails.street,
+    postalCode: '811 09',
+    addressLocality: 'Bratislava – mestská časť Staré Mesto',
+    addressCountry: 'SK',
+  },
+};
+const webSiteSchema = {
+  '@type': 'WebSite',
+  '@id': 'https://pudilar.com/#website',
+  url: 'https://pudilar.com/',
+  name: 'Pudilar',
+  publisher: { '@id': 'https://pudilar.com/#organization' },
+  inLanguage: locale,
+};
+const breadcrumbSchema = isLegal
+  ? {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Pudilar', item: 'https://pudilar.com/' },
+        { '@type': 'ListItem', position: 2, name: title, item: canonicalUrl },
+      ],
+    }
+  : null;
+const structuredData = breadcrumbSchema ? [organizationSchema, webSiteSchema, breadcrumbSchema] : [organizationSchema, webSiteSchema];
+---
+
+<!doctype html>
+<html lang={locale} class="no-js">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#101311" />
+    <meta name="color-scheme" content="dark light" />
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="alternate" hreflang="en" href={englishUrl} />
+    <link rel="alternate" hreflang="sk" href={slovakUrl} />
+    <link rel="alternate" hreflang="x-default" href="https://pudilar.com/" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.svg" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content={locale === 'en' ? 'en_US' : 'sk_SK'} />
+    <meta property="og:locale:alternate" content={locale === 'en' ? 'sk_SK' : 'en_US'} />
+    <meta property="og:site_name" content="Pudilar" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content="https://pudilar.com/og-image.svg" />
+    <meta property="og:image:alt" content="Pudilar abstract investment universe monogram" />
+    <meta property="og:image:type" content="image/svg+xml" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content="https://pudilar.com/og-image.svg" />
+    <script is:inline>document.documentElement.classList.replace('no-js', 'js');</script>
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <slot />
+    <script src="../scripts/site.ts"></script>
+  </body>
+</html>

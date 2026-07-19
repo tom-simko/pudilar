@@ -1,0 +1,17 @@
+---
+interface Props {
+  number: string;
+  label: string;
+  heading: string;
+  intro?: string;
+  light?: boolean;
+}
+
+const { number, label, heading, intro, light = false } = Astro.props;
+---
+
+<div class:list={['section-heading', 'reveal', { 'section-heading--light': light }]}>
+  <p class="section-kicker"><span>{number}</span><span aria-hidden="true"> / </span>{label}</p>
+  <h2>{heading}</h2>
+  {intro && <p class="section-intro">{intro}</p>}
+</div>

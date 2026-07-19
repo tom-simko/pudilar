@@ -1,0 +1,24 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import LegalPage from '../components/LegalPage.astro';
+import { siteCopy } from '../content/site';
+
+const copy = siteCopy.en;
+const buildDate = new Date();
+const buildDateLabel = new Intl.DateTimeFormat('en-GB', { day: 'numeric', month: 'long', year: 'numeric' }).format(buildDate);
+---
+
+<SiteLayout
+  title="Legal Information and Privacy | Pudilar"
+  description="Legal information, privacy information and investment disclaimer for Pudilar s. r. o."
+  locale="en"
+  canonicalPath="/legal/"
+  alternatePath="/sk/pravne-informacie/"
+  isLegal
+>
+  <Header locale="en" copy={copy} />
+  <LegalPage copy={copy} buildDateLabel={buildDateLabel} />
+  <Footer locale="en" copy={copy} year={buildDate.getFullYear()} />
+</SiteLayout>

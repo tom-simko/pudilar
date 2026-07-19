@@ -1,0 +1,18 @@
+{
+  "name": "Pudilar",
+  "short_name": "Pudilar",
+  "description": "Private investment company based in Bratislava.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#101311",
+  "theme_color": "#101311",
+  "icons": [
+    {
+      "src": "/apple-touch-icon.svg",
+      "sizes": "180x180",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

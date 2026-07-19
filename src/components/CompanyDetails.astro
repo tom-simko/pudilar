@@ -1,0 +1,52 @@
+---
+import { legalDetails } from '../content/site';
+
+interface Props {
+  labels: {
+    registeredOffice: string;
+    companyId: string;
+    taxId: string;
+    vatId: string;
+    register: string;
+    established: string;
+  };
+  compact?: boolean;
+}
+
+const { labels, compact = false } = Astro.props;
+---
+
+<dl class:list={['company-details', { 'company-details--compact': compact }]}>
+  <div>
+    <dt>{labels.registeredOffice}</dt>
+    <dd>
+      {legalDetails.street}<br />
+      {legalDetails.locality}<br />
+      {legalDetails.country}
+    </dd>
+  </div>
+  <div>
+    <dt>{labels.companyId}</dt>
+    <dd>{legalDetails.companyId}</dd>
+  </div>
+  <div>
+    <dt>{labels.taxId}</dt>
+    <dd>{legalDetails.taxId}</dd>
+  </div>
+  <div>
+    <dt>{labels.vatId}</dt>
+    <dd>{legalDetails.vatId}</dd>
+  </div>
+  <div>
+    <dt>{labels.register}</dt>
+    <dd>
+      {legalDetails.registerName}<br />
+      Section: {legalDetails.registerSection}<br />
+      Insert No.: {legalDetails.registerInsert}
+    </dd>
+  </div>
+  <div>
+    <dt>{labels.established}</dt>
+    <dd>{legalDetails.established}</dd>
+  </div>
+</dl>

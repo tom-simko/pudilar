@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#101311"/>
+  <g fill="none" stroke="#9eaa8a" stroke-opacity=".28">
+    <circle cx="860" cy="315" r="214"/>
+    <circle cx="860" cy="315" r="142"/>
+    <ellipse cx="860" cy="315" rx="286" ry="116" transform="rotate(-18 860 315)"/>
+    <ellipse cx="860" cy="315" rx="178" ry="250" transform="rotate(28 860 315)"/>
+    <path d="M640 315h440M860 95v440" stroke-opacity=".15"/>
+  </g>
+  <g fill="none" stroke="#a9895c" stroke-opacity=".68">
+    <path d="M860 315 673 184M860 315 1059 193M860 315 1072 451M860 315 656 455"/>
+  </g>
+  <circle cx="860" cy="315" r="26" fill="#9eaa8a" fill-opacity=".14"/>
+  <circle cx="860" cy="315" r="6" fill="#f4f1e9"/>
+  <circle cx="673" cy="184" r="8" fill="#9eaa8a"/>
+  <circle cx="1059" cy="193" r="8" fill="#a9895c"/>
+  <circle cx="1072" cy="451" r="8" fill="#9eaa8a"/>
+  <circle cx="656" cy="455" r="8" fill="#a9895c"/>
+  <path d="M78 245V130h60c32 0 52 15 52 41s-20 42-52 42h-36M102 155h34c16 0 25 6 25 17s-9 17-25 17h-34" fill="none" stroke="#9eaa8a" stroke-width="9"/>
+  <text x="78" y="355" fill="#f4f1e9" font-family="Arial, Helvetica, sans-serif" font-size="54" font-weight="700" letter-spacing="15">PUDILAR</text>
+  <text x="82" y="405" fill="#a7aea6" font-family="Arial, Helvetica, sans-serif" font-size="18" letter-spacing="5">PRIVATE INVESTMENT COMPANY</text>
+</svg>

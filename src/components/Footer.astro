@@ -1,0 +1,56 @@
+---
+import type { Locale, SiteCopy } from '../content/site';
+import { legalDetails } from '../content/site';
+import CompanyDetails from './CompanyDetails.astro';
+import Monogram from './Monogram.astro';
+
+interface Props {
+  locale: Locale;
+  copy: SiteCopy;
+  year: number;
+}
+
+const { copy, year } = Astro.props;
+---
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a class="wordmark wordmark--footer" href={copy.homePath} aria-label="Pudilar home">
+          <Monogram class="wordmark-mark" />
+          <span>PUDILAR</span>
+        </a>
+        <p>{copy.footer.description}</p>
+      </div>
+      <nav class="footer-nav" aria-label="Footer navigation">
+        <a href={`${copy.homePath}#approach`}>{copy.nav.approach}</a>
+        <a href={`${copy.homePath}#investment-areas`}>{copy.nav.areas}</a>
+        <a href={`${copy.homePath}#principles`}>{copy.nav.principles}</a>
+        <a href={`${copy.homePath}#company`}>{copy.nav.company}</a>
+        <a href={copy.legalPath}>{copy.footer.legalLink}</a>
+      </nav>
+      <div class="footer-language">
+        <p class="footer-label">{copy.header.language}</p>
+        <div class="language-switcher language-switcher--footer" aria-label={copy.header.language}>
+          <span aria-current="page">{copy.localeLabel === 'English' ? 'EN' : 'SK'}</span>
+          <span class="language-divider" aria-hidden="true">/</span>
+          <a href={copy.alternateHomePath}>{copy.localeLabel === 'English' ? 'SK' : 'EN'}</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-details">
+      <div class="footer-details-intro">
+        <p class="footer-label">{legalDetails.name}</p>
+        <p>{legalDetails.website}</p>
+      </div>
+      <CompanyDetails labels={copy.footer} compact />
+    </div>
+
+    <div class="footer-bottom">
+      <p>© {year} Pudilar s. r. o. {copy.footer.copyright}</p>
+      <a href={copy.legalPath}>{copy.footer.legalLink}</a>
+    </div>
+  </div>
+</footer>

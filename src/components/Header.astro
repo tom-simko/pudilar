@@ -1,0 +1,54 @@
+---
+import type { Locale, SiteCopy } from '../content/site';
+import Monogram from './Monogram.astro';
+
+interface Props {
+  locale: Locale;
+  copy: SiteCopy;
+}
+
+const { locale, copy } = Astro.props;
+const navItems = [
+  { label: copy.nav.approach, href: `${copy.homePath}#approach` },
+  { label: copy.nav.areas, href: `${copy.homePath}#investment-areas` },
+  { label: copy.nav.principles, href: `${copy.homePath}#principles` },
+  { label: copy.nav.company, href: `${copy.homePath}#company` },
+];
+const alternateLabel = locale === 'en' ? 'SK' : 'EN';
+const alternatePath = copy.alternateHomePath;
+---
+
+<header class="site-header" data-site-header>
+  <div class="header-inner container">
+    <a class="wordmark" href={copy.homePath} aria-label="Pudilar home">
+      <Monogram class="wordmark-mark" />
+      <span>PUDILAR</span>
+    </a>
+
+    <button
+      class="mobile-menu-toggle"
+      type="button"
+      aria-expanded="false"
+      aria-controls="primary-navigation"
+      data-open-label={copy.header.closeMenu}
+      data-closed-label={copy.header.menu}
+    >
+      <span class="sr-only">{copy.header.menu}</span>
+      <span class="menu-icon" aria-hidden="true"><i></i><i></i></span>
+    </button>
+
+    <nav class="site-nav" id="primary-navigation" aria-label="Primary navigation">
+      <div class="site-nav-links">
+        {navItems.map((item) => <a href={item.href}>{item.label}</a>)}
+        <a href={copy.legalPath}>{copy.nav.legal}</a>
+      </div>
+      <div class="language-switcher" aria-label={copy.header.language}>
+        <span aria-current="page">{locale === 'en' ? 'EN' : 'SK'}</span>
+        <span class="language-divider" aria-hidden="true">/</span>
+        <a href={alternatePath} aria-label={`${copy.header.language}: ${alternateLabel}`}>{alternateLabel}</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<script src="../scripts/menu.ts"></script>

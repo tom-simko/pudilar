@@ -1,0 +1,67 @@
+---
+import type { SiteCopy } from '../content/site';
+import CompanyDetails from './CompanyDetails.astro';
+
+interface Props {
+  copy: SiteCopy;
+  buildDateLabel: string;
+}
+
+const { copy, buildDateLabel } = Astro.props;
+---
+
+<main id="main" class="legal-main">
+  <section class="legal-hero section-dark">
+    <div class="container legal-hero-grid">
+      <p class="eyebrow reveal">{copy.legal.operator}</p>
+      <div class="legal-title-block reveal">
+        <h1>{copy.legal.title}</h1>
+        <p>{copy.legal.intro}</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="legal-content section-light">
+    <div class="container legal-layout">
+      <aside class="legal-index reveal" aria-label="On this page">
+        <p class="section-kicker">PUDILAR</p>
+        <a href="#operator">{copy.legal.operator}</a>
+        <a href="#privacy">{copy.localeLabel === 'English' ? 'Privacy' : 'Ochrana súkromia'}</a>
+        <a href="#disclaimer">{copy.localeLabel === 'English' ? 'Investment disclaimer' : 'Investičné upozornenie'}</a>
+        <a href="#intellectual-property">{copy.localeLabel === 'English' ? 'Intellectual property' : 'Duševné vlastníctvo'}</a>
+      </aside>
+
+      <div class="legal-sections">
+        <section id="operator" class="legal-section reveal">
+          <p class="section-kicker">01</p>
+          <h2>{copy.legal.operator}</h2>
+          <CompanyDetails labels={copy.footer} />
+        </section>
+
+        <section id="privacy" class="legal-section reveal">
+          <p class="section-kicker">02</p>
+          <h2>{copy.localeLabel === 'English' ? 'Privacy' : 'Ochrana súkromia'}</h2>
+          {copy.legal.privacy.map((paragraph) => <p>{paragraph}</p>)}
+        </section>
+
+        <section id="disclaimer" class="legal-section reveal">
+          <p class="section-kicker">03</p>
+          <h2>{copy.localeLabel === 'English' ? 'Investment disclaimer' : 'Investičné upozornenie'}</h2>
+          {copy.legal.disclaimer.map((paragraph) => <p>{paragraph}</p>)}
+        </section>
+
+        <section id="intellectual-property" class="legal-section reveal">
+          <p class="section-kicker">04</p>
+          <h2>{copy.localeLabel === 'English' ? 'Intellectual property' : 'Duševné vlastníctvo'}</h2>
+          <p>{copy.legal.intellectualProperty}</p>
+        </section>
+
+        <section class="legal-section legal-section--last reveal">
+          <p class="section-kicker">05</p>
+          <h2>{copy.legal.lastUpdated}</h2>
+          <time datetime={new Date().toISOString().slice(0, 10)}>{buildDateLabel}</time>
+        </section>
+      </div>
+    </div>
+  </div>
+</main>

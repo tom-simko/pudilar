@@ -78,11 +78,16 @@ export interface SiteCopy {
   footer: {
     description: string;
     registeredOffice: string;
+    country: string;
     companyId: string;
     taxId: string;
     vatId: string;
     register: string;
+    registerName: string;
+    section: string;
+    insertNumber: string;
     established: string;
+    establishedDate: string;
     legalLink: string;
     copyright: string;
   };
@@ -219,11 +224,16 @@ export const siteCopy: Record<Locale, SiteCopy> = {
     footer: {
       description: 'A privately held investment company allocating its own capital across multiple asset classes.',
       registeredOffice: 'Registered office',
+      country: 'Slovak Republic',
       companyId: 'Company ID',
       taxId: 'Tax ID',
       vatId: 'VAT ID',
       register: 'Commercial Register',
+      registerName: 'Commercial Register of the District Court Žilina',
+      section: 'Section',
+      insertNumber: 'Insert No.',
       established: 'Established',
+      establishedDate: '22 July 2023',
       legalLink: 'Legal information and privacy',
       copyright: 'All rights reserved.',
     },
@@ -356,11 +366,16 @@ export const siteCopy: Record<Locale, SiteCopy> = {
     footer: {
       description: 'Súkromná investičná spoločnosť investujúca vlastný kapitál naprieč viacerými triedami aktív.',
       registeredOffice: 'Sídlo',
+      country: 'Slovenská republika',
       companyId: 'IČO',
       taxId: 'DIČ',
       vatId: 'IČ DPH',
       register: 'Obchodný register',
+      registerName: 'Obchodný register Okresného súdu Žilina',
+      section: 'Oddiel',
+      insertNumber: 'Vložka č.',
       established: 'Založená',
+      establishedDate: '22. júla 2023',
       legalLink: 'Právne informácie a ochrana súkromia',
       copyright: 'Všetky práva vyhradené.',
     },

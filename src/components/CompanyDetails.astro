@@ -4,11 +4,16 @@ import { legalDetails } from '../content/site';
 interface Props {
   labels: {
     registeredOffice: string;
+    country: string;
     companyId: string;
     taxId: string;
     vatId: string;
     register: string;
+    registerName: string;
+    section: string;
+    insertNumber: string;
     established: string;
+    establishedDate: string;
   };
   compact?: boolean;
 }
@@ -22,7 +27,7 @@ const { labels, compact = false } = Astro.props;
     <dd>
       {legalDetails.street}<br />
       {legalDetails.locality}<br />
-      {legalDetails.country}
+      {labels.country}
     </dd>
   </div>
   <div>
@@ -40,13 +45,13 @@ const { labels, compact = false } = Astro.props;
   <div>
     <dt>{labels.register}</dt>
     <dd>
-      {legalDetails.registerName}<br />
-      Section: {legalDetails.registerSection}<br />
-      Insert No.: {legalDetails.registerInsert}
+      {labels.registerName}<br />
+      {labels.section}: {legalDetails.registerSection}<br />
+      {labels.insertNumber}: {legalDetails.registerInsert}
     </dd>
   </div>
   <div>
     <dt>{labels.established}</dt>
-    <dd>{legalDetails.established}</dd>
+    <dd>{labels.establishedDate}</dd>
   </div>
 </dl>

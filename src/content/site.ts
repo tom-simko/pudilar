@@ -46,6 +46,15 @@ export interface SiteCopy {
     primaryLink: string;
     secondaryLabel: string;
     visualCaption: string;
+    visualLabels: {
+      heading: string;
+      realAssets: string;
+      privateCompanies: string;
+      publicMarkets: string;
+      digitalAssets: string;
+      core: string;
+      footer: string;
+    };
   };
   approach: {
     label: string;
@@ -137,6 +146,15 @@ export const siteCopy: Record<Locale, SiteCopy> = {
       primaryLink: 'Explore our approach',
       secondaryLabel: 'Based in Bratislava, investing across asset classes.',
       visualCaption: 'An illustrative investment universe, not a representation of current holdings.',
+      visualLabels: {
+        heading: 'CAPITAL ALLOCATION',
+        realAssets: 'REAL ASSETS',
+        privateCompanies: 'PRIVATE COMPANIES',
+        publicMarkets: 'PUBLIC MARKETS',
+        digitalAssets: 'DIGITAL ASSETS',
+        core: 'DISCIPLINED ALLOCATION',
+        footer: 'LONG-TERM VALUE / DISCIPLINED DECISIONS',
+      },
     },
     approach: {
       label: 'APPROACH',
@@ -281,6 +299,15 @@ export const siteCopy: Record<Locale, SiteCopy> = {
       primaryLink: 'Spoznajte náš prístup',
       secondaryLabel: 'Sídlo v Bratislave. Investície naprieč rôznymi triedami aktív.',
       visualCaption: 'Ilustratívne investičné oblasti, nie zobrazenie aktuálneho portfólia.',
+      visualLabels: {
+        heading: 'ALOKÁCIA KAPITÁLU',
+        realAssets: 'REÁLNE AKTÍVA',
+        privateCompanies: 'SÚKROMNÉ SPOLOČNOSTI',
+        publicMarkets: 'VEREJNÉ TRHY',
+        digitalAssets: 'DIGITÁLNE AKTÍVA',
+        core: 'DISCIPLINOVANÁ ALOKÁCIA',
+        footer: 'DLHODOBÁ HODNOTA / DISCIPLINOVANÉ ROZHODNUTIA',
+      },
     },
     approach: {
       label: 'PRÍSTUP',

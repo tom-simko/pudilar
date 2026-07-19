@@ -1,53 +1,106 @@
 ---
 interface Props {
   caption: string;
+  visualLabels: {
+    heading: string;
+    realAssets: string;
+    privateCompanies: string;
+    publicMarkets: string;
+    digitalAssets: string;
+    core: string;
+    footer: string;
+  };
 }
 
-const { caption } = Astro.props;
+const { caption, visualLabels } = Astro.props;
 ---
 
-<figure class="hero-visual reveal" aria-labelledby="universe-title universe-description">
-  <svg viewBox="0 0 720 620" role="img" focusable="false">
-    <title id="universe-title">Illustrative investment universe</title>
-    <desc id="universe-description">An abstract orbital system representing different investment areas around a central point.</desc>
+<figure class="hero-visual reveal" aria-labelledby="allocation-title allocation-description">
+  <svg viewBox="0 0 720 540" role="img" focusable="false">
+    <title id="allocation-title">{visualLabels.heading}</title>
+    <desc id="allocation-description">A considered capital allocation map connecting four investment areas to a disciplined central framework.</desc>
     <defs>
-      <linearGradient id="orbit-gradient" x1="0" x2="1" y1="0" y2="1">
-        <stop offset="0" stop-color="#9eaa8a" stop-opacity="0.1" />
-        <stop offset="0.5" stop-color="#9eaa8a" stop-opacity="0.72" />
-        <stop offset="1" stop-color="#a9895c" stop-opacity="0.14" />
+      <linearGradient id="allocation-line" x1="0" x2="1" y1="0" y2="1">
+        <stop offset="0" stop-color="#9eaa8a" stop-opacity="0.12" />
+        <stop offset="0.52" stop-color="#f4f1e9" stop-opacity="0.52" />
+        <stop offset="1" stop-color="#a9895c" stop-opacity="0.18" />
       </linearGradient>
-      <radialGradient id="core-glow">
-        <stop offset="0" stop-color="#f4f1e9" stop-opacity="0.85" />
+      <radialGradient id="allocation-core">
+        <stop offset="0" stop-color="#f4f1e9" stop-opacity="0.2" />
+        <stop offset="0.55" stop-color="#9eaa8a" stop-opacity="0.08" />
         <stop offset="1" stop-color="#9eaa8a" stop-opacity="0" />
       </radialGradient>
     </defs>
-    <g class="universe-grid" fill="none" stroke="currentColor" stroke-opacity="0.12">
-      <circle cx="360" cy="290" r="246" />
-      <circle cx="360" cy="290" r="184" />
-      <circle cx="360" cy="290" r="112" />
-      <path d="M93 290h534M360 24v532" />
+
+    <rect class="allocation-panel" x="24" y="24" width="672" height="452" />
+    <g class="allocation-grid" fill="none">
+      <circle cx="360" cy="270" r="166" />
+      <circle cx="360" cy="270" r="112" />
+      <circle cx="360" cy="270" r="58" />
+      <path d="M74 270h572M360 68v404" />
+      <path d="M110 126h42M110 126v42M610 126h-42M610 126v42M110 414h42M110 414v-42M610 414h-42M610 414v-42" />
     </g>
-    <g class="universe-orbits" fill="none" stroke="url(#orbit-gradient)">
-      <ellipse class="orbit-trace orbit-trace--one" cx="360" cy="290" rx="252" ry="138" transform="rotate(-19 360 290)" stroke-width="1.4" />
-      <ellipse class="orbit-trace orbit-trace--two" cx="360" cy="290" rx="210" ry="218" transform="rotate(35 360 290)" stroke-width="1" />
-      <ellipse class="orbit-trace orbit-trace--three" cx="360" cy="290" rx="138" ry="256" transform="rotate(73 360 290)" stroke-width="1.2" />
+
+    <text class="allocation-heading" x="58" y="66">{visualLabels.heading}</text>
+    <text class="allocation-index" x="662" y="66" text-anchor="end">01 / 04</text>
+
+    <g class="allocation-connectors" fill="none" stroke="url(#allocation-line)">
+      <path d="M174 158L321 246" />
+      <path d="M546 158L399 246" />
+      <path d="M174 382L321 294" />
+      <path d="M546 382L399 294" />
     </g>
-    <g class="universe-connectors" fill="none" stroke="currentColor" stroke-opacity="0.44" stroke-width="1">
-      <path d="M360 290L183 159M360 290L555 164M360 290L565 420M360 290L171 439" />
+
+    <g class="allocation-node allocation-node--real">
+      <circle cx="174" cy="158" r="5" />
+      <circle class="allocation-node-ring" cx="174" cy="158" r="11" />
     </g>
-    <circle class="universe-core-glow" cx="360" cy="290" r="70" fill="url(#core-glow)" />
-    <circle class="universe-core" cx="360" cy="290" r="4.5" fill="#f4f1e9" />
-    <circle class="universe-node universe-node--real" cx="183" cy="159" r="7" fill="#9eaa8a" />
-    <circle class="universe-node universe-node--private" cx="555" cy="164" r="7" fill="#a9895c" />
-    <circle class="universe-node universe-node--public" cx="565" cy="420" r="7" fill="#9eaa8a" />
-    <circle class="universe-node universe-node--digital" cx="171" cy="439" r="7" fill="#a9895c" />
-    <g class="universe-labels" fill="currentColor" font-family="Arial, sans-serif">
-      <text x="159" y="132" text-anchor="end">REAL ASSETS</text>
-      <text x="578" y="139">PRIVATE COMPANIES</text>
-      <text x="588" y="438">PUBLIC MARKETS</text>
-      <text x="154" y="468" text-anchor="end">DIGITAL ASSETS</text>
-      <text x="360" y="322" text-anchor="middle" class="universe-center-label">DISCIPLINED ALLOCATION</text>
+    <g class="allocation-node allocation-node--private">
+      <circle cx="546" cy="158" r="5" />
+      <circle class="allocation-node-ring" cx="546" cy="158" r="11" />
     </g>
+    <g class="allocation-node allocation-node--public">
+      <circle cx="546" cy="382" r="5" />
+      <circle class="allocation-node-ring" cx="546" cy="382" r="11" />
+    </g>
+    <g class="allocation-node allocation-node--digital">
+      <circle cx="174" cy="382" r="5" />
+      <circle class="allocation-node-ring" cx="174" cy="382" r="11" />
+    </g>
+
+    <g class="allocation-labels">
+      <g class="allocation-label allocation-label--left" transform="translate(72 126)">
+        <text class="allocation-number" y="0">01</text>
+        <text class="allocation-title" y="20">{visualLabels.realAssets}</text>
+        <line class="allocation-rule" x1="0" y1="31" x2="70" y2="31" />
+      </g>
+      <g class="allocation-label allocation-label--right" transform="translate(566 126)">
+        <text class="allocation-number" y="0">02</text>
+        <text class="allocation-title" y="20">{visualLabels.privateCompanies}</text>
+        <line class="allocation-rule" x1="0" y1="31" x2="82" y2="31" />
+      </g>
+      <g class="allocation-label allocation-label--right" transform="translate(566 382)">
+        <text class="allocation-number" y="0">03</text>
+        <text class="allocation-title" y="20">{visualLabels.publicMarkets}</text>
+        <line class="allocation-rule" x1="0" y1="31" x2="82" y2="31" />
+      </g>
+      <g class="allocation-label allocation-label--left" transform="translate(72 382)">
+        <text class="allocation-number" y="0">04</text>
+        <text class="allocation-title" y="20">{visualLabels.digitalAssets}</text>
+        <line class="allocation-rule" x1="0" y1="31" x2="70" y2="31" />
+      </g>
+    </g>
+
+    <g class="allocation-core">
+      <circle class="allocation-core-glow" cx="360" cy="270" r="92" fill="url(#allocation-core)" />
+      <circle class="allocation-core-ring" cx="360" cy="270" r="40" />
+      <circle class="allocation-core-dot" cx="360" cy="270" r="3" />
+      <text class="allocation-core-mark" x="360" y="263" text-anchor="middle">P</text>
+      <text class="allocation-core-label" x="360" y="286" text-anchor="middle">{visualLabels.core}</text>
+    </g>
+
+    <text class="allocation-footer" x="58" y="456">{visualLabels.footer}</text>
+    <text class="allocation-index" x="662" y="456" text-anchor="end">PUDILAR</text>
   </svg>
   <figcaption>{caption}</figcaption>
 </figure>

@@ -35,7 +35,10 @@ const { copy, year } = Astro.props;
         <div class="language-switcher language-switcher--footer" aria-label={copy.header.language}>
           <span aria-current="page">{copy.localeLabel === 'English' ? 'EN' : 'SK'}</span>
           <span class="language-divider" aria-hidden="true">/</span>
-          <a href={copy.alternateHomePath}>{copy.localeLabel === 'English' ? 'SK' : 'EN'}</a>
+          <a
+            href={copy.alternateHomePath}
+            data-language-preference={copy.localeLabel === 'English' ? 'sk' : 'en'}
+          >{copy.localeLabel === 'English' ? 'SK' : 'EN'}</a>
         </div>
       </div>
     </div>

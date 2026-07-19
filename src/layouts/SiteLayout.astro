@@ -84,6 +84,33 @@ const structuredData = breadcrumbSchema ? [organizationSchema, webSiteSchema, br
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content="https://pudilar.com/og-image.svg" />
+    <script is:inline>
+      {`
+        (() => {
+          const preferenceKey = 'pudilar-language';
+          const normalizedPath = window.location.pathname.replace(/\\/+$/, '') || '/';
+          const isProjectSite = normalizedPath === '/pudilar' || normalizedPath.startsWith('/pudilar/');
+          const basePath = isProjectSite ? '/pudilar/' : '/';
+          const isEnglishHome = normalizedPath === '/' || normalizedPath === '/pudilar';
+          const isEnglishLegal = normalizedPath === '/legal' || normalizedPath === '/pudilar/legal';
+          const storedLanguage = (() => {
+            try {
+              return window.localStorage.getItem(preferenceKey);
+            } catch {
+              return null;
+            }
+          })();
+          const browserLanguage = navigator.languages?.[0] ?? navigator.language ?? '';
+          const prefersSlovak = /^sk(?:-|$)/i.test(browserLanguage);
+          const shouldUseSlovak = storedLanguage === 'sk' || (!storedLanguage && prefersSlovak);
+
+          if (shouldUseSlovak && (isEnglishHome || isEnglishLegal)) {
+            const targetPath = isEnglishLegal ? 'sk/pravne-informacie/' : 'sk/';
+            window.location.replace(basePath + targetPath + window.location.search + window.location.hash);
+          }
+        })();
+      `}
+    </script>
     <script is:inline>document.documentElement.classList.replace('no-js', 'js');</script>
     <script is:inline type="application/ld+json" set:html={JSON.stringify(structuredData)} />
   </head>

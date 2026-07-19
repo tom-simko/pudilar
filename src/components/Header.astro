@@ -45,7 +45,11 @@ const alternatePath = copy.alternateHomePath;
       <div class="language-switcher" aria-label={copy.header.language}>
         <span aria-current="page">{locale === 'en' ? 'EN' : 'SK'}</span>
         <span class="language-divider" aria-hidden="true">/</span>
-        <a href={alternatePath} aria-label={`${copy.header.language}: ${alternateLabel}`}>{alternateLabel}</a>
+        <a
+          href={alternatePath}
+          aria-label={`${copy.header.language}: ${alternateLabel}`}
+          data-language-preference={alternateLabel.toLowerCase()}
+        >{alternateLabel}</a>
       </div>
     </nav>
   </div>

@@ -1,5 +1,20 @@
 const revealItems = document.querySelectorAll<HTMLElement>('.reveal');
 
+const languagePreferenceKey = 'pudilar-language';
+const languageLinks = document.querySelectorAll<HTMLAnchorElement>('[data-language-preference]');
+
+languageLinks.forEach((link) => {
+  link.addEventListener('click', () => {
+    const language = link.dataset.languagePreference;
+    if (!language) return;
+    try {
+      window.localStorage.setItem(languagePreferenceKey, language);
+    } catch {
+      // Local storage may be unavailable in private browsing modes.
+    }
+  });
+});
+
 if ('IntersectionObserver' in window && revealItems.length > 0) {
   const observer = new IntersectionObserver(
     (entries, currentObserver) => {

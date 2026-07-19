@@ -261,7 +261,7 @@ export const siteCopy: Record<Locale, SiteCopy> = {
       operator: 'Website operator',
       privacy: [
         'Pudilar does not intentionally collect personal data through this website. The website does not contain user accounts, contact forms, advertising pixels or analytics tools.',
-        'The website does not set non-essential cookies. The hosting provider and normal internet infrastructure may process limited technical information, such as an IP address or request logs, as required to deliver and secure the website.',
+        'The website does not set non-essential cookies. It may store a language preference locally in your browser so your preferred version opens by default; this preference is not transmitted to Pudilar. The hosting provider and normal internet infrastructure may process limited technical information, such as an IP address or request logs, as required to deliver and secure the website.',
         'When following a link to another website, the privacy terms of that website apply.',
       ],
       disclaimer: [
@@ -412,7 +412,7 @@ export const siteCopy: Record<Locale, SiteCopy> = {
       operator: 'Prevádzkovateľ webovej stránky',
       privacy: [
         'Pudilar prostredníctvom tejto webovej stránky zámerne nezhromažďuje osobné údaje. Stránka neobsahuje používateľské účty, kontaktné formuláre, reklamné pixely ani analytické nástroje.',
-        'Webová stránka nepoužíva žiadne súbory cookie, ktoré nie sú technicky nevyhnutné. Poskytovateľ hostingu a bežná internetová infraštruktúra môžu v nevyhnutnom rozsahu spracúvať technické informácie, napríklad IP adresu alebo záznamy požiadaviek, aby mohli stránku doručiť a zabezpečiť.',
+        'Webová stránka nepoužíva žiadne súbory cookie, ktoré nie sú technicky nevyhnutné. V prehliadači môže lokálne uložiť preferenciu jazyka, aby sa pri ďalšej návšteve predvolene otvorila preferovaná verzia; táto preferencia sa spoločnosti Pudilar neodosiela. Poskytovateľ hostingu a bežná internetová infraštruktúra môžu v nevyhnutnom rozsahu spracúvať technické informácie, napríklad IP adresu alebo záznamy požiadaviek, aby mohli stránku doručiť a zabezpečiť.',
         'Po otvorení odkazu na inú webovú stránku sa uplatňujú podmienky ochrany súkromia danej stránky.',
       ],
       disclaimer: [

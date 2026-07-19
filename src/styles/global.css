@@ -626,13 +626,15 @@ ol {
 }
 
 .cycle-motif::before {
-  width: 4rem;
-  height: 2.2rem;
-  border-top: 1px solid var(--green-dark);
-  border-bottom: 1px solid var(--line-light);
-  border-radius: 50%;
+  width: 4.25rem;
+  height: 1.25rem;
+  flex: 0 0 4.25rem;
+  background:
+    radial-gradient(circle at 0.3rem 50%, var(--paper) 0 0.12rem, var(--green-dark) 0.13rem 0.22rem, transparent 0.24rem),
+    radial-gradient(circle at 2.15rem 50%, var(--paper) 0 0.12rem, var(--green-dark) 0.13rem 0.22rem, transparent 0.24rem),
+    radial-gradient(circle at 3.95rem 50%, var(--paper) 0 0.12rem, var(--bronze) 0.13rem 0.22rem, transparent 0.24rem),
+    linear-gradient(var(--line-light), var(--line-light)) center / 100% 1px no-repeat;
   content: '';
-  transform: skewX(-28deg) rotate(-8deg);
 }
 
 .areas-section {

@@ -384,7 +384,8 @@ ol {
 
 .hero-visual {
   position: relative;
-  max-width: 45rem;
+  width: 108%;
+  max-width: 50rem;
   justify-self: end;
 }
 

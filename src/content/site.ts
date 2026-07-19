@@ -136,7 +136,7 @@ export const siteCopy: Record<Locale, SiteCopy> = {
         'Pudilar is a privately held investment company allocating its own capital across real assets, private companies, public markets and digital assets. We focus on durable value, disciplined decisions and a long-term horizon.',
       primaryLink: 'Explore our approach',
       secondaryLabel: 'Based in Bratislava, investing across asset classes.',
-      visualCaption: 'An abstract study of time, discipline and compounding—not a representation of current holdings.',
+      visualCaption: 'An abstract study of time, discipline and compounding.',
     },
     approach: {
       label: 'APPROACH',
@@ -280,7 +280,7 @@ export const siteCopy: Record<Locale, SiteCopy> = {
       intro: 'Pudilar je súkromná investičná spoločnosť, ktorá investuje vlastný kapitál do reálnych aktív, súkromných spoločností, verejných trhov a digitálnych aktív. Zameriavame sa na dlhodobú hodnotu, disciplinované rozhodovanie a dlhý investičný horizont.',
       primaryLink: 'Spoznajte náš prístup',
       secondaryLabel: 'Sídlo v Bratislave. Investície naprieč rôznymi triedami aktív.',
-      visualCaption: 'Abstraktné zobrazenie času, disciplíny a postupného zhodnocovania, nie aktuálneho portfólia.',
+      visualCaption: 'Abstraktné zobrazenie času, disciplíny a postupného zhodnocovania.',
     },
     approach: {
       label: 'PRÍSTUP',

@@ -6,79 +6,85 @@ interface Props {
 const { caption } = Astro.props;
 ---
 
-<figure class="hero-visual reveal" aria-labelledby="abstract-title abstract-description">
+<figure class="hero-visual reveal" aria-labelledby="patient-title patient-description">
   <svg viewBox="0 0 720 540" role="img" focusable="false">
-    <title id="abstract-title">{caption}</title>
-    <desc id="abstract-description">An abstract composition of intersecting planes, arcs and a central point, representing patient capital moving through changing cycles.</desc>
+    <title id="patient-title">{caption}</title>
+    <desc id="patient-description">A stable origin surrounded by successive time rings and gradually widening paths, representing discipline, compounding and a long investment horizon.</desc>
     <defs>
-      <linearGradient id="abstract-plane-a" x1="0" x2="1" y1="1" y2="0">
+      <linearGradient id="patient-growth" x1="0" x2="1" y1="1" y2="0">
         <stop offset="0" stop-color="#9eaa8a" stop-opacity="0.02" />
-        <stop offset="0.52" stop-color="#9eaa8a" stop-opacity="0.16" />
-        <stop offset="1" stop-color="#f4f1e9" stop-opacity="0.025" />
+        <stop offset="0.58" stop-color="#9eaa8a" stop-opacity="0.14" />
+        <stop offset="1" stop-color="#a9895c" stop-opacity="0.04" />
       </linearGradient>
-      <linearGradient id="abstract-plane-b" x1="0" x2="1" y1="0" y2="1">
-        <stop offset="0" stop-color="#a9895c" stop-opacity="0.025" />
-        <stop offset="0.58" stop-color="#a9895c" stop-opacity="0.15" />
-        <stop offset="1" stop-color="#f4f1e9" stop-opacity="0.02" />
+      <linearGradient id="patient-line" x1="0" x2="1" y1="1" y2="0">
+        <stop offset="0" stop-color="#9eaa8a" stop-opacity="0.12" />
+        <stop offset="0.54" stop-color="#f4f1e9" stop-opacity="0.48" />
+        <stop offset="1" stop-color="#a9895c" stop-opacity="0.16" />
       </linearGradient>
-      <linearGradient id="abstract-line" x1="0" x2="1" y1="0" y2="1">
-        <stop offset="0" stop-color="#9eaa8a" stop-opacity="0.05" />
-        <stop offset="0.48" stop-color="#f4f1e9" stop-opacity="0.52" />
-        <stop offset="1" stop-color="#a9895c" stop-opacity="0.08" />
-      </linearGradient>
-      <radialGradient id="abstract-focus">
-        <stop offset="0" stop-color="#f4f1e9" stop-opacity="0.22" />
-        <stop offset="0.28" stop-color="#9eaa8a" stop-opacity="0.1" />
+      <radialGradient id="patient-origin">
+        <stop offset="0" stop-color="#f4f1e9" stop-opacity="0.2" />
+        <stop offset="0.32" stop-color="#9eaa8a" stop-opacity="0.09" />
         <stop offset="1" stop-color="#9eaa8a" stop-opacity="0" />
       </radialGradient>
-      <clipPath id="abstract-clip">
+      <clipPath id="patient-clip">
         <rect x="24" y="24" width="672" height="452" />
       </clipPath>
     </defs>
 
-    <rect class="abstract-frame" x="24" y="24" width="672" height="452" />
-    <g clip-path="url(#abstract-clip)">
-      <rect class="abstract-field" x="24" y="24" width="672" height="452" />
+    <rect class="patient-frame" x="24" y="24" width="672" height="452" />
+    <g clip-path="url(#patient-clip)">
+      <rect class="patient-field" x="24" y="24" width="672" height="452" />
 
-      <path class="abstract-plane abstract-plane--one" d="M-30 468L258 34H432L145 468Z" fill="url(#abstract-plane-a)" />
-      <path class="abstract-plane abstract-plane--two" d="M236 500L536 -12H718L418 500Z" fill="url(#abstract-plane-b)" />
+      <path
+        class="patient-growth-field"
+        d="M150 390C246 389 302 353 357 294C421 225 490 150 640 112C518 174 440 238 374 309C309 378 248 405 150 390Z"
+        fill="url(#patient-growth)"
+      />
 
-      <g class="abstract-rings" fill="none" stroke="url(#abstract-line)">
-        <ellipse class="abstract-ring abstract-ring--outer" cx="410" cy="258" rx="350" ry="142" transform="rotate(-17 410 258)" />
-        <ellipse class="abstract-ring" cx="410" cy="258" rx="278" ry="108" transform="rotate(-17 410 258)" />
-        <ellipse class="abstract-ring" cx="410" cy="258" rx="206" ry="75" transform="rotate(-17 410 258)" />
-        <ellipse class="abstract-ring abstract-ring--vertical" cx="410" cy="258" rx="132" ry="310" transform="rotate(42 410 258)" />
+      <g class="patient-rings" fill="none" stroke="url(#patient-line)">
+        <circle cx="150" cy="390" r="56" />
+        <circle cx="150" cy="390" r="96" />
+        <circle cx="150" cy="390" r="144" />
+        <circle cx="150" cy="390" r="202" />
+        <circle cx="150" cy="390" r="270" />
+        <circle cx="150" cy="390" r="348" />
+        <circle cx="150" cy="390" r="436" />
       </g>
 
-      <g class="abstract-flow" fill="none">
-        <path d="M-18 414C121 383 204 335 290 263C388 181 486 124 744 82" />
-        <path d="M-12 438C138 401 234 349 322 273C411 196 516 139 746 103" />
-        <path d="M12 459C166 419 260 367 350 291C438 216 542 161 754 126" />
+      <g class="patient-rays" fill="none">
+        <path d="M150 390H724" />
+        <path d="M150 390L724 278" />
+        <path d="M150 390L694 148" />
+        <path d="M150 390L574 -28" />
       </g>
 
-      <g class="abstract-structure" fill="none">
-        <path d="M72 430L648 89" />
-        <path d="M178 474L536 24" />
-        <path d="M24 344H696" />
-        <path d="M410 24V476" />
+      <g class="patient-paths" fill="none">
+        <path class="patient-path patient-path--lower" d="M150 390C260 390 326 362 392 316C466 264 540 206 676 174" />
+        <path class="patient-path patient-path--main" d="M150 390C246 389 302 353 357 294C421 225 490 150 640 112" />
+        <path class="patient-path patient-path--upper" d="M150 390C231 377 274 323 318 252C373 164 446 90 570 54" />
       </g>
 
-      <circle class="abstract-glow" cx="410" cy="258" r="142" fill="url(#abstract-focus)" />
-      <circle class="abstract-focus-ring abstract-focus-ring--outer" cx="410" cy="258" r="43" />
-      <circle class="abstract-focus-ring" cx="410" cy="258" r="18" />
-      <circle class="abstract-focus-dot" cx="410" cy="258" r="3.5" />
-
-      <g class="abstract-points">
-        <circle cx="178" cy="395" r="3" />
-        <circle cx="288" cy="329" r="2" />
-        <circle cx="535" cy="184" r="2" />
-        <circle cx="648" cy="116" r="3" />
+      <g class="patient-horizon">
+        <path d="M72 390H662" />
+        <circle cx="236" cy="390" r="1.5" />
+        <circle cx="326" cy="390" r="1.8" />
+        <circle cx="420" cy="390" r="2.1" />
+        <circle cx="518" cy="390" r="2.4" />
+        <circle cx="620" cy="390" r="2.7" />
       </g>
 
-      <path class="abstract-shade" d="M24 402C182 371 310 306 410 224C505 146 594 100 696 78V476H24Z" />
+      <circle class="patient-origin-glow" cx="150" cy="390" r="94" fill="url(#patient-origin)" />
+      <circle class="patient-origin-ring patient-origin-ring--outer" cx="150" cy="390" r="29" />
+      <circle class="patient-origin-ring" cx="150" cy="390" r="12" />
+      <circle class="patient-origin-dot" cx="150" cy="390" r="3.5" />
+
+      <circle class="patient-terminal-ring" cx="640" cy="112" r="10" />
+      <circle class="patient-terminal-dot" cx="640" cy="112" r="3" />
+
+      <path class="patient-shade" d="M24 438C190 419 302 360 386 283C476 201 560 142 696 99V476H24Z" />
     </g>
 
-    <g class="abstract-corners" fill="none">
+    <g class="patient-corners" fill="none">
       <path d="M24 58V24H58M662 24H696V58M24 442V476H58M662 476H696V442" />
     </g>
   </svg>

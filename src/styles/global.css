@@ -404,91 +404,110 @@ ol {
   text-align: right;
 }
 
-.abstract-frame {
+.patient-frame {
   fill: rgba(255, 255, 255, 0.008);
   stroke: var(--line-dark);
   stroke-opacity: 0.62;
 }
 
-.abstract-field {
+.patient-field {
   fill: rgba(23, 27, 24, 0.2);
 }
 
-.abstract-plane {
+.patient-growth-field {
+  stroke: var(--green);
+  stroke-opacity: 0.08;
+  stroke-width: 1;
+}
+
+.patient-rings {
+  stroke-width: 1;
+}
+
+.patient-rings circle {
+  stroke-opacity: 0.28;
+}
+
+.patient-rings circle:nth-child(2n) {
+  stroke-opacity: 0.16;
+}
+
+.patient-rays {
+  stroke: var(--muted);
+  stroke-opacity: 0.08;
+  stroke-width: 1;
+}
+
+.patient-path {
+  stroke-linecap: round;
+  stroke-width: 1;
+}
+
+.patient-path--lower {
+  stroke: var(--green);
+  stroke-opacity: 0.28;
+}
+
+.patient-path--main {
   stroke: var(--light);
-  stroke-opacity: 0.045;
+  stroke-opacity: 0.54;
+  stroke-width: 1.35;
+}
+
+.patient-path--upper {
+  stroke: var(--bronze);
+  stroke-opacity: 0.31;
+}
+
+.patient-horizon {
+  fill: var(--green);
+  stroke: var(--green);
+  stroke-opacity: 0.16;
   stroke-width: 1;
 }
 
-.abstract-rings {
+.patient-horizon circle {
+  fill: var(--green);
+  stroke: none;
+}
+
+.patient-origin-glow {
+  opacity: 0.92;
+}
+
+.patient-origin-ring {
+  fill: rgba(16, 19, 17, 0.62);
+  stroke: var(--light);
+  stroke-opacity: 0.5;
   stroke-width: 1;
 }
 
-.abstract-ring {
-  stroke-opacity: 0.42;
-}
-
-.abstract-ring--outer {
+.patient-origin-ring--outer {
+  fill: none;
+  stroke: var(--green);
   stroke-opacity: 0.24;
 }
 
-.abstract-ring--vertical {
-  stroke-opacity: 0.18;
-}
-
-.abstract-flow {
-  stroke: var(--green);
-  stroke-opacity: 0.23;
-  stroke-width: 1;
-}
-
-.abstract-flow path:nth-child(2) {
-  stroke: var(--light);
-  stroke-opacity: 0.22;
-}
-
-.abstract-flow path:nth-child(3) {
-  stroke: var(--bronze);
-  stroke-opacity: 0.2;
-}
-
-.abstract-structure {
-  stroke: var(--muted);
-  stroke-opacity: 0.09;
-  stroke-width: 1;
-}
-
-.abstract-glow {
-  opacity: 0.95;
-}
-
-.abstract-focus-ring {
-  fill: rgba(16, 19, 17, 0.56);
-  stroke: var(--light);
-  stroke-opacity: 0.46;
-  stroke-width: 1;
-}
-
-.abstract-focus-ring--outer {
-  fill: none;
-  stroke: var(--green);
-  stroke-opacity: 0.21;
-}
-
-.abstract-focus-dot {
+.patient-origin-dot {
   fill: var(--light);
 }
 
-.abstract-points {
-  fill: var(--bronze);
-  opacity: 0.78;
+.patient-terminal-ring {
+  fill: rgba(16, 19, 17, 0.62);
+  stroke: var(--bronze);
+  stroke-opacity: 0.5;
+  stroke-width: 1;
 }
 
-.abstract-shade {
+.patient-terminal-dot {
+  fill: var(--bronze);
+}
+
+.patient-shade {
   fill: rgba(16, 19, 17, 0.22);
 }
 
-.abstract-corners {
+.patient-corners {
   stroke: var(--green);
   stroke-opacity: 0.28;
   stroke-width: 1;

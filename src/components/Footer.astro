@@ -8,9 +8,11 @@ interface Props {
   locale: Locale;
   copy: SiteCopy;
   year: number;
+  isLegal?: boolean;
 }
 
-const { copy, year } = Astro.props;
+const { copy, year, isLegal = false } = Astro.props;
+const alternatePath = isLegal ? copy.alternateLegalPath : copy.alternateHomePath;
 ---
 
 <footer class="site-footer">
@@ -36,7 +38,7 @@ const { copy, year } = Astro.props;
           <span aria-current="page">{copy.localeLabel === 'English' ? 'EN' : 'SK'}</span>
           <span class="language-divider" aria-hidden="true">/</span>
           <a
-            href={copy.alternateHomePath}
+            href={alternatePath}
             data-language-preference={copy.localeLabel === 'English' ? 'sk' : 'en'}
           >{copy.localeLabel === 'English' ? 'SK' : 'EN'}</a>
         </div>

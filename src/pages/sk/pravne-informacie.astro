@@ -18,7 +18,7 @@ const buildDateLabel = new Intl.DateTimeFormat('sk-SK', { day: 'numeric', month:
   alternatePath="/legal/"
   isLegal
 >
-  <Header locale="sk" copy={copy} />
+  <Header locale="sk" copy={copy} isLegal />
   <LegalPage copy={copy} buildDateLabel={buildDateLabel} />
-  <Footer locale="sk" copy={copy} year={buildDate.getFullYear()} />
+  <Footer locale="sk" copy={copy} year={buildDate.getFullYear()} isLegal />
 </SiteLayout>

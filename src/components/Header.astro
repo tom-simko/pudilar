@@ -5,9 +5,10 @@ import Monogram from './Monogram.astro';
 interface Props {
   locale: Locale;
   copy: SiteCopy;
+  isLegal?: boolean;
 }
 
-const { locale, copy } = Astro.props;
+const { locale, copy, isLegal = false } = Astro.props;
 const navItems = [
   { label: copy.nav.approach, href: `${copy.homePath}#approach` },
   { label: copy.nav.areas, href: `${copy.homePath}#investment-areas` },
@@ -15,7 +16,7 @@ const navItems = [
   { label: copy.nav.company, href: `${copy.homePath}#company` },
 ];
 const alternateLabel = locale === 'en' ? 'SK' : 'EN';
-const alternatePath = copy.alternateHomePath;
+const alternatePath = isLegal ? copy.alternateLegalPath : copy.alternateHomePath;
 ---
 
 <header class="site-header" data-site-header>
